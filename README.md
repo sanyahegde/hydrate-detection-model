@@ -1,4 +1,4 @@
-Hydrate Detection Model Using Random Forest
+**Hydrate Detection Model Using Random Forest**
 This project uses a Random Forest Algorithm to predict hydrate formation in industrial pipelines. By analyzing CSV files provided by the company, the model evaluates key variables such as:
 
 Volume Difference: The difference between the instantaneous and setpoint gas meter volumes.
@@ -51,7 +51,9 @@ Future Enhancements
 Include additional variables such as temperature and pressure for more comprehensive predictions.
 Deploy the model using Flask or FastAPI for real-time predictions.
 Incorporate advanced ensemble techniques for improved performance.
-Dependencies
+
+
+**Dependencies**
 Python 3.7+
 pandas
 numpy
