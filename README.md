@@ -1,62 +1,57 @@
-**Hydrate Detection Model Using Random Forest**
-This project uses a Random Forest Algorithm to predict hydrate formation in industrial pipelines. By analyzing CSV files provided by the company, the model evaluates key variables such as:
+# 💧 Hydrate Detection Model Using Random Forest
 
-Volume Difference: The difference between the instantaneous and setpoint gas meter volumes.
-Valve Percent Open: The openness of the injection valve.
-Key Features
-Dynamic Feature Engineering:
+This project implements a **Random Forest classifier** to predict **hydrate formation** in industrial gas pipelines using real-world CSV data. The model leverages **dynamic feature engineering** and statistical analysis to flag potential hydrate events based on pipeline measurements such as volume differences and valve openness.
 
-Creates a Volume_Difference feature from input data.
-Dynamically sets thresholds for hydrate detection based on statistical analysis (e.g., 95th percentile).
-Random Forest Algorithm:
+---
 
-Utilizes an ensemble of decision trees to predict hydrate formation.
-Balances class weights to handle imbalanced datasets.
-Performs cross-validation to ensure the model generalizes effectively.
-Visualization:
+##  Key Features
 
-Outputs scatterplots that display Volume Difference against Valve Percent Open, with color-coded predictions (hydrate detected or not).
-Visual representations make it easier to interpret predictions.
-Data Handling:
+### Dynamic Feature Engineering
+- Calculates `Volume_Difference` as the delta between instantaneous and setpoint gas meter readings.
+- Applies statistical analysis (e.g. 95th percentile thresholds) to determine hydrate-related anomalies.
 
-Reads and preprocesses real-world CSV data to handle missing values and engineer features.
-Splits the dataset into training and testing sets for robust evaluation.
-Model Performance:
+###  Random Forest Classifier
+- Uses an ensemble of decision trees to classify hydrate presence.
+- Balances class weights to handle imbalanced datasets.
+- Performs **cross-validation** for robustness.
 
-Provides classification reports detailing precision, recall, F1 scores, and accuracy.
-Validates the model on unseen data (e.g., Fearless.csv) to ensure reliability.
-How It Works
-Load Data: Combines multiple CSV files provided by the company.
-Preprocess Data:
-Handles missing values.
-Engineers features relevant to hydrate formation.
-Train Model:
-Fits a Random Forest Classifier to predict hydrate presence (Hydrate_Detected).
-Evaluate Model:
-Generates classification metrics.
-Validates predictions using test data and cross-validation.
-Visualize Predictions:
-Scatterplots highlight relationships between key features and predictions.
-Results
-The model achieves high accuracy in predicting hydrate formation based on the provided dataset.
-Visualizations demonstrate clear clusters of data points where hydrates are likely or unlikely.
-Usage
-Clone the repository.
-Place your CSV files in the project directory.
-Run the Python script to process the data, train the model, and visualize results.
-bash
-Copy code
-python hydrate_model.py
-Future Enhancements
-Include additional variables such as temperature and pressure for more comprehensive predictions.
-Deploy the model using Flask or FastAPI for real-time predictions.
-Incorporate advanced ensemble techniques for improved performance.
+### Visualization
+- Creates scatterplots of `Volume_Difference` vs. `Valve Percent Open`, with predictions color-coded (hydrate vs. no hydrate).
+- Makes model outputs interpretable for domain experts.
 
+### Data Handling
+- Reads multiple CSV files and combines them into a single dataset.
+- Handles missing values and engineers key features.
+- Splits data into training and test sets for evaluation.
 
-**Dependencies**
-Python 3.7+
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
+### Model Performance
+- Outputs classification reports with **accuracy, precision, recall, and F1 scores**.
+- Validates performance on unseen datasets like `Fearless.csv`.
+
+---
+
+## How It Works
+
+1. **Load Data**  
+   - Reads and merges CSV files from the working directory.
+  
+2. **Preprocess Data**  
+   - Cleans missing values and engineers features (`Volume_Difference`, etc.).
+
+3. **Train Model**  
+   - Fits a Random Forest classifier to predict `Hydrate_Detected`.
+
+4. **Evaluate Model**  
+   - Produces classification metrics and validates on a separate test set.
+
+5. **Visualize Predictions**  
+   - Generates scatterplots to highlight patterns in hydrate vs. non-hydrate cases.
+
+---
+
+## 📂 Usage
+
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/your-username/hydrate-detection-model.git
+   cd hydrate-detection-model
